@@ -7,11 +7,24 @@ def generate_random_password(length, include_symbols=False, include_numbers=Fals
         characters += string.punctuation
     if include_numbers:
         characters += string.digits
-    return ''.join(random.choice(characters) for i in range(length))
+    return ''.join(random.choice(characters) for _ in range(length))
 
-# Example Usage
-password = generate_random_password(8, include_symbols=True, include_numbers=True)
-print(password)
-"""
-sample by Naresh
-"""
+def main():
+    while True:
+        try:
+            length = int(input("Enter the length of the password: "))
+            if length <= 0:
+                print("Please enter a positive integer for the length.")
+                continue
+            break
+        except ValueError:
+            print("Please enter a valid integer for the length.")
+
+    include_symbols = input("Include symbols? (y/n): ").lower() == 'y'
+    include_numbers = input("Include numbers? (y/n): ").lower() == 'y'
+
+    password = generate_random_password(length, include_symbols, include_numbers)
+    print("Generated Password:", password)
+
+if __name__ == "__main__":
+    main()
