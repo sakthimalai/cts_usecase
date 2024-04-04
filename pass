@@ -13,5 +13,5 @@ def generate_random_password(length, include_symbols=False, include_numbers=Fals
 password = generate_random_password(8, include_symbols=True, include_numbers=True)
 print(password)
 """
-sample
+sample by Naresh
 """
